@@ -148,13 +148,60 @@
 <body class="min-h-screen flex flex-col">
     <!-- Header placeholder -->
     <div id="header-container"></div>
-    
+
     <!-- Main Content -->
     <main class="flex-grow bg-cream py-12">
         <div class="container mx-auto px-4">
+            <!-- Page Title -->
+            
+            
+            <!-- Stories That Make You Move Section -->
+           <div class="mb-16">
+  <div class="bg-white px-6 py-10 rounded-md shadow-md">
+    <div class="flex flex-col md:flex-row items-center md:items-center">
+      
+      <!-- Left: Text Content -->
+      <div class="md:w-1/2 text-left md:pr-10">
+        <h2 class="text-3xl font-semibold mb-4">Stories That Make You Move</h2>
+        <p class="mb-2">Join the community and help uplift the artisans.</p>
+        <p class="mb-6">2% of every garment/kit sold is dedicated towards the artisans</p>
+        <button class="bg-black hover:bg-gray-800 text-white text-sm px-5 py-2 rounded-md">
+          Know More
+        </button>
+      </div>
+
+      <!-- Right: Image -->
+      <div class="md:w-1/2 mt-6 md:mt-0">
+        <img src="/assets/images/artisan.png" alt="Artisans working on kantha" class="w-full h-auto rounded-md">
+      </div>
+      
+    </div>
+  </div>
+</div>
+
+
+            
+            <!-- Community Creations Section -->
+            <div class="mb-16">
+                <h2 class="text-2xl font-bold mb-6">Community Creations</h2>
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
+                    <div>
+                        <img src="/image/placeholder1.png" alt="Colorful bags" class="w-full h-auto">
+                    </div>
+                    <div>
+                        <img src="/image/placeholder2.png" alt="Pattern template" class="w-full h-auto">
+                    </div>
+                    <div>
+                        <img src="/image/placeholder3.png" alt="Upcycled wallet" class="w-full h-auto">
+                    </div>
+                    <div>
+                        <img src="/image/placeholder4.png" alt="Patchwork quilt" class="w-full h-auto">
+                    </div>
+                </div>
+            </div>
+            
             <div class="max-w-2xl mx-auto">
-                <!-- Page Title -->
-                <h1 class="text-3xl font-bold mb-8">Share Your Creations</h1>
+                <h2 class="text-2xl font-bold mb-6">Share Your Creations</h2>
                 
                 <!-- Upload Form -->
                 <div class="bg-white rounded-lg shadow-sm p-8">
@@ -216,45 +263,7 @@
                     </div>
                 </div>
                 
-                <!-- Community Showcase -->
-                <div class="mt-12">
-                    <h2 class="text-2xl font-semibold mb-6">Community Showcase</h2>
-                    
-                    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-                        <!-- Featured Creation 1 -->
-                        <div class="bg-white rounded overflow-hidden shadow-sm">
-                            <div class="h-48 overflow-hidden">
-                                <img src="/api/placeholder/400/300" alt="Community creation" class="w-full h-full object-cover">
-                            </div>
-                            <div class="p-4">
-                                <h3 class="font-medium">Vibrant Kantha Wall Hanging</h3>
-                                <p class="text-gray-600 text-sm">By @artisan_maria</p>
-                            </div>
-                        </div>
-                        
-                        <!-- Featured Creation 2 -->
-                        <div class="bg-white rounded overflow-hidden shadow-sm">
-                            <div class="h-48 overflow-hidden">
-                                <img src="/api/placeholder/400/300" alt="Community creation" class="w-full h-full object-cover">
-                            </div>
-                            <div class="p-4">
-                                <h3 class="font-medium">Modern Kantha Cushion Cover</h3>
-                                <p class="text-gray-600 text-sm">By @creative_stitcher</p>
-                            </div>
-                        </div>
-                        
-                        <!-- Featured Creation 3 -->
-                        <div class="bg-white rounded overflow-hidden shadow-sm">
-                            <div class="h-48 overflow-hidden">
-                                <img src="/api/placeholder/400/300" alt="Community creation" class="w-full h-full object-cover">
-                            </div>
-                            <div class="p-4">
-                                <h3 class="font-medium">Traditional Pattern Experiment</h3>
-                                <p class="text-gray-600 text-sm">By @kantha_lover</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                
             </div>
         </div>
     </main>
