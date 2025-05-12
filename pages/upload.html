@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Your Creations | Kreate Kantha</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        black: '#000000',
+                        white: '#FFFFFF',
+                        lightGray: '#E5E7EB',
+                        pink: '#D2877D',
+                        darkGray: '#262626',
+                        rust: '#C0392B',
+                        lightBlue: '#CED4DA',
+                        mediumGray: '#D4D4D4',
+                        lightBeige: '#EBE8E5',
+                        cream: '#F2E9DA',
+                        lightestGray: '#F5F5F5'
+                    },
+                },
+                fontFamily: {
+                    'sans': ['Open Sans', 'sans-serif'],
+                },
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background-color: #F2E9DA;
+        }
+        
+        .upload-area {
+            border: 2px dashed #CED4DA;
+            transition: all 0.3s ease;
+        }
+        
+        .upload-area:hover {
+            border-color: #D2877D;
+        }
+        
+        .custom-input {
+            background-color: white;
+            border: 1px solid #E5E7EB;
+            transition: border-color 0.3s ease;
+        }
+        
+        .custom-input:focus {
+            border-color: #D2877D;
+            outline: none;
+        }
+        
+        .submit-btn {
+            transition: background-color 0.3s ease;
+        }
+        
+        .submit-btn:hover {
+            background-color: #333;
+        }
+    </style>
+    <!-- Script to load components -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Load header
+            fetch('/components/header.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('header-container').innerHTML = data;
+                });
+            
+            // Load footer
+            fetch('/components/footer.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('footer-container').innerHTML = data;
+                });
+                
+            // Setup drag and drop functionality
+            const dropArea = document.getElementById('drop-area');
+            const fileInput = document.getElementById('file-input');
+            
+            ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+                dropArea.addEventListener(eventName, preventDefaults, false);
+            });
+            
+            function preventDefaults(e) {
+                e.preventDefault();
+                e.stopPropagation();
+            }
+            
+            ['dragenter', 'dragover'].forEach(eventName => {
+                dropArea.addEventListener(eventName, highlight, false);
+            });
+            
+            ['dragleave', 'drop'].forEach(eventName => {
+                dropArea.addEventListener(eventName, unhighlight, false);
+            });
+            
+            function highlight() {
+                dropArea.classList.add('border-pink');
+                dropArea.classList.remove('border-lightGray');
+            }
+            
+            function unhighlight() {
+                dropArea.classList.remove('border-pink');
+                dropArea.classList.add('border-lightGray');
+            }
+            
+            dropArea.addEventListener('drop', handleDrop, false);
+            
+            function handleDrop(e) {
+                const dt = e.dataTransfer;
+                const files = dt.files;
+                
+                handleFiles(files);
+            }
+            
+            function handleFiles(files) {
+                // Preview functionality would go here
+                console.log("Files uploaded:", files);
+                // Show file name in the upload area
+                if (files.length > 0) {
+                    const fileNameEl = document.getElementById('file-name');
+                    fileNameEl.textContent = `Selected: ${files[0].name}`;
+                    fileNameEl.classList.remove('hidden');
+                }
+            }
+            
+            // Connect the hidden file input to the browse button
+            document.getElementById('browse-btn').addEventListener('click', function() {
+                document.getElementById('file-input').click();
+            });
+            
+            // Handle file selection through the file input
+            fileInput.addEventListener('change', function() {
+                handleFiles(this.files);
+            });
+        });
+    </script>
+</head>
+<body class="min-h-screen flex flex-col">
+    <!-- Header placeholder -->
+    <div id="header-container"></div>
+    
+    <!-- Main Content -->
+    <main class="flex-grow bg-cream py-12">
+        <div class="container mx-auto px-4">
+            <div class="max-w-2xl mx-auto">
+                <!-- Page Title -->
+                <h1 class="text-3xl font-bold mb-8">Share Your Creations</h1>
+                
+                <!-- Upload Form -->
+                <div class="bg-white rounded-lg shadow-sm p-8">
+                    <!-- Upload Area -->
+                    <div id="drop-area" class="upload-area bg-white rounded-lg p-12 flex flex-col items-center justify-center mb-6 cursor-pointer">
+                        <input type="file" id="file-input" class="hidden" multiple accept="image/*">
+                        
+                        <img src="/api/placeholder/64/64" alt="Upload icon" class="w-16 h-16 mb-4">
+                        
+                        <p class="text-gray-600 mb-2 text-center">Drag and drop your photos here</p>
+                        <p id="file-name" class="text-sm text-green-600 mb-3 hidden"></p>
+                        <button id="browse-btn" class="bg-lightGray hover:bg-gray-300 text-gray-800 px-4 py-2 rounded transition-colors">
+                            Browse Files
+                        </button>
+                    </div>
+                    
+                    <!-- Form Fields -->
+                    <div class="space-y-6">
+                        <!-- Project Title -->
+                        <div>
+                            <label for="project-title" class="block text-sm font-medium text-gray-700 mb-1">Project Title</label>
+                            <input type="text" id="project-title" name="project-title" placeholder="Enter your project title" 
+                                class="custom-input w-full px-3 py-2 rounded-md">
+                        </div>
+                        
+                        <!-- Description -->
+                        <div>
+                            <label for="description" class="block text-sm font-medium text-gray-700 mb-1">Description</label>
+                            <textarea id="description" name="description" rows="4" placeholder="Tell us about your creation" 
+                                class="custom-input w-full px-3 py-2 rounded-md resize-none"></textarea>
+                        </div>
+                        
+                        <!-- Category -->
+                        <div>
+                            <label for="category" class="block text-sm font-medium text-gray-700 mb-1">Category</label>
+                            <select id="category" name="category" class="custom-input w-full px-3 py-2 rounded-md appearance-none">
+                                <option value="" disabled selected>Select category</option>
+                                <option value="quilts">Quilts</option>
+                                <option value="wall-art">Wall Art</option>
+                                <option value="accessories">Accessories</option>
+                                <option value="apparel">Apparel</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        
+                        <!-- Tags -->
+                        <div>
+                            <label for="tags" class="block text-sm font-medium text-gray-700 mb-1">Tags (optional)</label>
+                            <input type="text" id="tags" name="tags" placeholder="Add tags separated by commas" 
+                                class="custom-input w-full px-3 py-2 rounded-md">
+                        </div>
+                        
+                        <!-- Submit Button -->
+                        <div>
+                            <button type="submit" class="submit-btn w-full bg-black text-white py-3 rounded-md font-medium">
+                                Submit Creation
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Community Showcase -->
+                <div class="mt-12">
+                    <h2 class="text-2xl font-semibold mb-6">Community Showcase</h2>
+                    
+                    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+                        <!-- Featured Creation 1 -->
+                        <div class="bg-white rounded overflow-hidden shadow-sm">
+                            <div class="h-48 overflow-hidden">
+                                <img src="/api/placeholder/400/300" alt="Community creation" class="w-full h-full object-cover">
+                            </div>
+                            <div class="p-4">
+                                <h3 class="font-medium">Vibrant Kantha Wall Hanging</h3>
+                                <p class="text-gray-600 text-sm">By @artisan_maria</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Featured Creation 2 -->
+                        <div class="bg-white rounded overflow-hidden shadow-sm">
+                            <div class="h-48 overflow-hidden">
+                                <img src="/api/placeholder/400/300" alt="Community creation" class="w-full h-full object-cover">
+                            </div>
+                            <div class="p-4">
+                                <h3 class="font-medium">Modern Kantha Cushion Cover</h3>
+                                <p class="text-gray-600 text-sm">By @creative_stitcher</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Featured Creation 3 -->
+                        <div class="bg-white rounded overflow-hidden shadow-sm">
+                            <div class="h-48 overflow-hidden">
+                                <img src="/api/placeholder/400/300" alt="Community creation" class="w-full h-full object-cover">
+                            </div>
+                            <div class="p-4">
+                                <h3 class="font-medium">Traditional Pattern Experiment</h3>
+                                <p class="text-gray-600 text-sm">By @kantha_lover</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <!-- Footer placeholder -->
+    <div id="footer-container"></div>
+</body>
+</html>
