@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kreate Kantha - Traditional Kantha Art Meets Modern Design</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        black: '#000000',
+                        white: '#FFFFFF',
+                        lightGray: '#E5E7EB',
+                        pink: '#D2877D',
+                        darkGray: '#262626',
+                        rust: '#C0392B',
+                        lightBlue: '#CED4DA',
+                        mediumGray: '#D4D4D4',
+                        lightBeige: '#EBE8E5',
+                        cream: '#F2E9DA',
+                        lightestGray: '#F5F5F5'
+                    },
+                },
+                fontFamily: {
+                    'sans': ['Open Sans', 'sans-serif'],
+                },
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Open Sans', sans-serif;
+        }
+    </style>
+    <!-- Script to load components -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Load header
+            fetch('./components/header.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('header-container').innerHTML = data;
+                });
+            
+            // Load footer
+            fetch('./components/footer.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('footer-container').innerHTML = data;
+                });
+        });
+    </script>
+</head>
+<body class="min-h-screen flex flex-col">
+    <!-- Header placeholder -->
+    <div id="header-container"></div>
+    
+    <!-- Main Content -->
+    <main class="flex-grow bg-white">
+        <section class="py-16 px-4">
+            <div class="container mx-auto flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 md:pr-12">
+                    <h1 class="text-4xl md:text-5xl font-bold mb-4 text-black">Traditional Kantha Art Meets Modern Design</h1>
+                    <p class="text-lg mb-8 text-black">Discover handcrafted pieces that tell stories through every stitch</p>
+                    <a href="./pages/about.html" class="inline-block bg-black text-white px-6 py-3 rounded hover:bg-gray-800 transition-colors">About Us</a>
+                </div>
+                <div class="md:w-1/2 mt-8 md:mt-0">
+                    <!-- Placeholder for the group image -->
+                    <div class="bg-gray-200 h-64 md:h-96 w-full rounded">
+                        <!-- This will be replaced with your SVG -->
+                        <img src="./assets/images/group-photo.svg" alt="Artisans of Kreate Kantha" class="w-full h-full object-cover rounded">
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Footer placeholder -->
+    <div id="footer-container"></div>
+</body>
+</html>
