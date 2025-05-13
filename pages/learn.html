@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learn & Create - Kantha Stitch</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        beige: '#f5f0e6',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-beige min-h-screen flex flex-col">
+    <!-- Header will be imported from components -->
+    <div id="header-container"></div>
+
+    <!-- Main Content -->
+    <main class="flex-grow container mx-auto px-4 py-10">
+        <div class="flex justify-between items-center mb-8">
+            <h1 class="text-2xl md:text-3xl font-semibold">Learn & Create</h1>
+            <div class="text-right relative group">
+                <button class="text-md flex items-center">
+                    Categories
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                    </svg>
+                </button>
+                <div class="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-10 hidden group-hover:block">
+                    <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Basic Stitches</a>
+                    <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Pattern Making</a>
+                    <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Advanced techniques</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <!-- Video Tutorials Card -->
+            <div class="bg-white p-6 rounded-lg shadow-sm">
+                <div class="flex items-center mb-4">
+                    <div class="text-2xl mr-2">
+                        <i class="fas fa-video"></i>
+                    </div>
+                    <h2 class="text-xl font-medium">Video Tutorials</h2>
+                </div>
+                <p class="text-gray-700 mb-6">Learn from expert artisans through detailed video lessons.</p>
+                <a href="#" class="inline-flex items-center text-black hover:underline">
+                    Watch Now
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                    </svg>
+                </a>
+            </div>
+
+            <!-- Written Guide Card -->
+            <div class="bg-white p-6 rounded-lg shadow-sm">
+                <div class="flex items-center mb-4">
+                    <div class="text-2xl mr-2">
+                        <i class="fas fa-book"></i>
+                    </div>
+                    <h2 class="text-xl font-medium">Written Guide</h2>
+                </div>
+                <p class="text-gray-700 mb-6">Comprehensive guide to traditional Kantha stitches.</p>
+                <a href="#" class="inline-flex items-center text-black hover:underline">
+                    Read More
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                    </svg>
+                </a>
+            </div>
+
+            <!-- DIY Kits Card -->
+            <div class="bg-white p-6 rounded-lg shadow-sm">
+                <div class="flex items-center mb-4">
+                    <div class="text-2xl mr-2">
+                        <i class="fas fa-box"></i>
+                    </div>
+                    <h2 class="text-xl font-medium">DIY Kits</h2>
+                </div>
+                <p class="text-gray-700 mb-6">Get started with our beginner-friendly craft kits.</p>
+                <a href="#" class="inline-flex items-center text-black hover:underline">
+                    Shop Kits
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                    </svg>
+                </a>
+            </div>
+
+            <!-- Community Card -->
+            <div class="bg-white p-6 rounded-lg shadow-sm">
+                <div class="flex items-center mb-4">
+                    <div class="text-2xl mr-2">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h2 class="text-xl font-medium">Community</h2>
+                </div>
+                <p class="text-gray-700 mb-6">Share your creations and connect with fellow artists.</p>
+                <a href="#" class="inline-flex items-center text-black hover:underline">
+                    Join Now
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer will be imported from components -->
+    <div id="footer-container"></div>
+
+    <!-- JavaScript to import components -->
+    <script>
+        // Function to load components
+        async function loadComponent(url, containerId) {
+            try {
+                const response = await fetch(url);
+                const html = await response.text();
+                document.getElementById(containerId).innerHTML = html;
+            } catch (error) {
+                console.error(`Error loading ${url}:`, error);
+            }
+        }
+
+        // Load header and footer components
+        document.addEventListener('DOMContentLoaded', function() {
+            loadComponent('components/header.html', 'header-container');
+            loadComponent('components/footer.html', 'footer-container');
+        });
+    </script>
+</body>
+</html>
