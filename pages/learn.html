@@ -22,6 +22,25 @@
 <body class="bg-beige min-h-screen flex flex-col">
     <!-- Header will be imported from components -->
     <div id="header-container"></div>
+    <section class="bg-white py-16 px-4 shadow-sm">
+        <div class="container mx-auto text-center">
+            <h1 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Welcome to the World of Kantha Stitch</h1>
+            <p class="text-gray-600 text-lg max-w-2xl mx-auto">Discover the timeless beauty of this traditional embroidery from Bengal. Whether you're a beginner or an expert, there's something here for everyone to learn, create, and share.</p>
+        </div>
+    </section>
+
+    <!-- Intro Section -->
+    <section class="py-12 px-4">
+        <div class="container mx-auto grid grid-cols-1 md:grid-cols-2 items-center gap-8">
+            <div>
+                <img src="../assets/images/learn.png" alt="Kantha Stitch" class="rounded-lg shadow-lg">
+            </div>
+            <div>
+                <h2 class="text-2xl font-semibold text-gray-800 mb-4">What is Kantha?</h2>
+                <p class="text-gray-700 text-md leading-relaxed">Kantha is a centuries-old form of embroidery that originated in Bengal, India. Made by stitching together layers of old sarees or cloth, Kantha is not just a technique—it's a tradition passed down through generations. This art form beautifully blends storytelling, craftsmanship, and sustainable fashion.</p>
+            </div>
+        </div>
+    </section>
 
     <!-- Main Content -->
     <main class="flex-grow container mx-auto px-4 py-10">
@@ -122,6 +141,9 @@
         async function loadComponent(url, containerId) {
             try {
                 const response = await fetch(url);
+                if (!response.ok) {
+                    throw new Error(`Failed to fetch ${url}: ${response.status}`);
+                }
                 const html = await response.text();
                 document.getElementById(containerId).innerHTML = html;
             } catch (error) {
@@ -131,8 +153,9 @@
 
         // Load header and footer components
         document.addEventListener('DOMContentLoaded', function() {
-            loadComponent('components/header.html', 'header-container');
-            loadComponent('components/footer.html', 'footer-container');
+            loadComponent('../components/header.html', 'header-container');
+loadComponent('../components/footer.html', 'footer-container');
+
         });
     </script>
 </body>

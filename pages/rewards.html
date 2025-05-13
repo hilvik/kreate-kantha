@@ -89,20 +89,61 @@
   <!-- Hero Section -->
   <section class="bg-white py-10">
     <div class="max-w-7xl mx-auto px-4 text-center">
-      <h1 class="text-3xl font-semibold">Join Our Rewards Program</h1>
-      <p class="mt-2 text-gray-600">Upload your creations and earn points for discounts</p>
+      
 
       <!-- Reward Options -->
-      <div class="mt-8 flex flex-col md:flex-row justify-center gap-6">
-        <div class="icon-container w-32 h-32 mx-auto">
-          <img src="/assets/images/upload.png" alt="Upload Creations" class="icon-image" />
-        </div>
-        <div class="icon-container w-32 h-32 mx-auto">
-          <img src="/assets/images/earn.png" alt="Earn Points" class="icon-image" />
-        </div>
-        <div class="icon-container w-32 h-32 mx-auto">
-          <img src="/assets/images/redeem.png" alt="Redeem Rewards" class="icon-image" />
-        </div>
+     <!-- Rewards Program Section -->
+<section class="bg-gray-50 py-12">
+  <div class="text-center mb-10">
+    <h2 class="text-2xl font-semibold text-gray-800">Join Our Rewards Program</h2>
+    <p class="text-gray-600">Upload your creations and earn points for discounts</p>
+  </div>
+
+  <div class="flex flex-col md:flex-row justify-center gap-6 px-4">
+    
+    <!-- Upload Card -->
+    <div class="bg-white rounded-lg shadow-md hover:shadow-lg transform hover:scale-105 transition-transform duration-300 p-6 w-full md:w-64 text-center">
+      <div class="flex justify-center mb-4">
+        <svg class="w-10 h-10 text-gray-800" fill="none" stroke="currentColor" stroke-width="2"
+             viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path stroke-linecap="round" stroke-linejoin="round"
+                d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M16 12l-4-4m0 0l-4 4m4-4v12"/>
+        </svg>
+      </div>
+      <h3 class="text-lg font-medium">Upload</h3>
+      <p class="text-sm text-gray-600">Share your Kantha creations</p>
+    </div>
+
+    <!-- Earn Points Card -->
+    <div class="bg-white rounded-lg shadow-md hover:shadow-lg transform hover:scale-105 transition-transform duration-300 p-6 w-full md:w-64 text-center">
+      <div class="flex justify-center mb-4">
+        <svg class="w-10 h-10 text-gray-800" fill="currentColor" viewBox="0 0 20 20"
+             xmlns="http://www.w3.org/2000/svg">
+          <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.538 1.118l-2.8-2.034a1 1 0 00-1.176 0l-2.8 2.034c-.783.57-1.838-.197-1.538-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.719c-.783-.57-.38-1.81.588-1.81h3.462a1 1 0 00.95-.69l1.07-3.292z"/>
+        </svg>
+      </div>
+      <h3 class="text-lg font-medium">Earn Points</h3>
+      <p class="text-sm text-gray-600">Get points for each upload</p>
+    </div>
+
+    <!-- Redeem Card -->
+    <div class="bg-white rounded-lg shadow-md hover:shadow-lg transform hover:scale-105 transition-transform duration-300 p-6 w-full md:w-64 text-center">
+      <div class="flex justify-center mb-4">
+        <svg class="w-10 h-10 text-gray-800" fill="none" stroke="currentColor" stroke-width="2"
+             viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path stroke-linecap="round" stroke-linejoin="round"
+                d="M20 12H4m16 0a4 4 0 00-4-4H8a4 4 0 000 8h8a4 4 0 004-4z"/>
+          <path stroke-linecap="round" stroke-linejoin="round"
+                d="M12 8v8"/>
+        </svg>
+      </div>
+      <h3 class="text-lg font-medium">Redeem</h3>
+      <p class="text-sm text-gray-600">Use points for discounts</p>
+    </div>
+  </div>
+</section>
+
+
       </div>
     </div>
   </section>
@@ -121,52 +162,95 @@
   </section>
 
   <!-- Rewards Section -->
-  <section class="max-w-6xl mx-auto px-4">
-    <h2 class="text-2xl font-semibold mb-4">Your Rewards</h2>
+  <section class="max-w-6xl mx-auto px-4 py-10">
+  <h2 class="text-2xl font-semibold mb-6">Your Rewards</h2>
 
-    <!-- Placeholder for Progress Bar -->
-    <div class="bg-white shadow rounded p-6 mb-6">
-      <div class="img-container h-16">
-        <img src="/assets/images/progress-bar.png" alt="Progress Bar with Points" class="img-fill" />
+  <!-- Progress Card -->
+  <div class="bg-white shadow rounded-lg p-6 mb-6">
+    <div class="flex items-center justify-between mb-4">
+      <div class="flex items-center gap-2 text-gray-800 text-lg font-medium">
+        <svg class="w-6 h-6 text-black" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M12 17.27L18.18 21 16.54 13.97 22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+        </svg>
+        2,450 Points
       </div>
+      <span class="text-sm text-gray-600">3,000 points</span>
     </div>
+    <div class="w-full bg-gray-200 rounded-full h-3">
+      <div class="bg-black h-3 rounded-full" style="width: 81.6%"></div>
+    </div>
+    <p class="mt-2 text-sm text-gray-500">Next Reward at: 3,000 points</p>
+  </div>
 
-    <!-- Tiers and Rewards -->
-    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4 mb-10">
-      <div class="bg-white p-4 shadow rounded">
-        <div class="img-container h-48">
-          <img src="/assets/images/current-tier.png" alt="Current Tier" class="img-fill" />
-        </div>
-      </div>
-      <div class="bg-white p-4 shadow rounded">
-        <div class="img-container h-48">
-          <img src="/assets/images/reward-count.png" alt="Available Rewards" class="img-fill" />
-        </div>
-      </div>
+  <!-- Tier and Reward Count Cards -->
+  <!-- Tier and Reward Count Cards Centered -->
+<div class="flex justify-center gap-6 mb-10">
+  <!-- Tier Card -->
+  <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg transform hover:scale-105 transition duration-300 w-64">
+    <div class="flex flex-col items-center text-center">
+      <svg class="w-8 h-8 text-black mb-3" fill="currentColor" viewBox="0 0 24 24">
+        <path d="M12 2l1.09 3.41L17 6l-2.64 2.1L15 11l-3-2-3 2 1.64-2.9L7 6l3.91-.59L12 2z"/>
+      </svg>
+      <h3 class="text-lg font-semibold text-gray-800">Current Tier</h3>
+      <p class="text-gray-600">Silver Member</p>
+      <p class="text-sm text-gray-500 mt-1">50 points to Gold</p>
     </div>
+  </div>
 
-    <!-- Redeem Section -->
-    <div class="bg-gray-100 p-6 rounded shadow">
-      <h3 class="text-xl font-semibold mb-4">Redeem Points</h3>
-      <div class="grid md:grid-cols-3 gap-4">
-        <div class="bg-white p-4 shadow rounded">
-          <div class="img-container h-48">
-            <img src="/assets/images/reward1.png" alt="Reward Option 1 - $10 Off" class="img-fill" />
-          </div>
-        </div>
-        <div class="bg-white p-4 shadow rounded">
-          <div class="img-container h-48">
-            <img src="/assets/images/reward2.png" alt="Reward Option 2 - Free Shipping" class="img-fill" />
-          </div>
-        </div>
-        <div class="bg-white p-4 shadow rounded">
-          <div class="img-container h-48">
-            <img src="/assets/images/reward3.png" alt="Reward Option 3 - 15% Off" class="img-fill" />
-          </div>
-        </div>
-      </div>
+  <!-- Available Rewards Card -->
+  <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg transform hover:scale-105 transition duration-300 w-64">
+    <div class="flex flex-col items-center text-center">
+      <svg class="w-8 h-8 text-black mb-3" fill="none" stroke="currentColor" stroke-width="2"
+           viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path stroke-linecap="round" stroke-linejoin="round"
+              d="M20 12H4m16 0a4 4 0 00-4-4H8a4 4 0 000 8h8a4 4 0 004-4z"/>
+        <path stroke-linecap="round" stroke-linejoin="round"
+              d="M12 8v8"/>
+      </svg>
+      <h3 class="text-lg font-semibold text-gray-800">Available Rewards</h3>
+      <p class="text-gray-600">3 Rewards</p>
+      <p class="text-sm text-gray-500 mt-1">Ready to redeem</p>
     </div>
-  </section>
+  </div>
+</div>
+
+
+  <!-- Redeem Points Section -->
+  <div class="bg-gray-100 p-6 rounded shadow">
+    <h3 class="text-xl font-semibold mb-6">Redeem Points</h3>
+    <div class="grid md:grid-cols-3 gap-6">
+
+      <!-- Reward Card 1 -->
+      <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg transform hover:scale-105 transition duration-300 flex flex-col justify-between">
+        <div>
+          <h4 class="text-lg font-semibold text-gray-800 mb-1">$10 Off</h4>
+          <p class="text-gray-600">200 points</p>
+        </div>
+        <button class="mt-4 w-full bg-black text-white py-2 rounded hover:opacity-90 transition">Redeem</button>
+      </div>
+
+      <!-- Reward Card 2 -->
+      <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg transform hover:scale-105 transition duration-300 flex flex-col justify-between">
+        <div>
+          <h4 class="text-lg font-semibold text-gray-800 mb-1">Free Shipping</h4>
+          <p class="text-gray-600">300 points</p>
+        </div>
+        <button class="mt-4 w-full bg-black text-white py-2 rounded hover:opacity-90 transition">Redeem</button>
+      </div>
+
+      <!-- Reward Card 3 -->
+      <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg transform hover:scale-105 transition duration-300 flex flex-col justify-between">
+        <div>
+          <h4 class="text-lg font-semibold text-gray-800 mb-1">15% Off</h4>
+          <p class="text-gray-600">400 points</p>
+        </div>
+        <button class="mt-4 w-full bg-black text-white py-2 rounded hover:opacity-90 transition">Redeem</button>
+      </div>
+
+    </div>
+  </div>
+</section>
+
 
   <!-- Footer -->
   <div id="footer-placeholder" class="mt-10"></div>
